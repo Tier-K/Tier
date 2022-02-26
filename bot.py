@@ -15,7 +15,6 @@ client = discord.Client()
 #sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
 #sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 desc_pattern = ["Hello", "Hi", "School", "Nice", "Good", "Great", "Study", "Kim", "Core", "You"]
-print()
 """
  - Memo - 
 플레이어 데이터 저장순서
