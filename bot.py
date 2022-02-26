@@ -583,4 +583,4 @@ async def on_message(message):
                         await message.channel.send (embed=embed)
                         Verify_Step_1.remove(message.author.id)
 
-client.run(os.environ['token'])
+client.run(token)
