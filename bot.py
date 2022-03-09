@@ -1,9 +1,7 @@
+
 import datetime, pytz
-from tokenize import Number
-from logging import _srcfile
 import csv
 import copy
-from time import sleep
 import discord
 import asyncio
 from ro_py import Client
@@ -11,10 +9,13 @@ import random
 import os
 Rclient = Client()
 client = discord.Client()
+TOKEN = os.environ.get('BOT_TOKEN')
+print(TOKEN)
 
 #sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
 #sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
 desc_pattern = ["Hello", "Hi", "School", "Nice", "Good", "Great", "Study", "Kim", "Core", "You"]
+print()
 """
  - Memo - 
 플레이어 데이터 저장순서
@@ -24,7 +25,7 @@ w : (write 모드) 새로 파일을 쓸 때 사용
 r : (read 모드) 파일로부터 데이터를 읽고 싶을 때 사용
 a : (append 모드) 파일에 데이터를 추가로 쓰고 싶을 때 사용
 """
-token = open("token.txt", "r").readline()
+
 Verify_Step_1 = []
 Verify_Step_2 = []
 Verify_Step_3 = []
@@ -583,4 +584,4 @@ async def on_message(message):
                         await message.channel.send (embed=embed)
                         Verify_Step_1.remove(message.author.id)
 
-client.run(os.environ['token'])
+client.run(TOKEN)
