@@ -10,7 +10,6 @@ import os
 Rclient = Client()
 client = discord.Client()
 TOKEN = os.environ.get('BOT_TOKEN')
-#TOKEN = "ODgyODkyOTg1OTEyNjc2MzUy.YTCAKw.T9Owb0jT6lSc4cq9-9dh32XQvRc"
 print(TOKEN)
 
 #sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
