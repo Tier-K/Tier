@@ -10,6 +10,7 @@ import os
 Rclient = Client()
 client = discord.Client()
 TOKEN = os.environ.get('BOT_TOKEN')
+#TOKEN = "ODgyODkyOTg1OTEyNjc2MzUy.YTCAKw.T9Owb0jT6lSc4cq9-9dh32XQvRc"
 print(TOKEN)
 
 #sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
@@ -226,7 +227,7 @@ async def on_message(message):
                             embed = discord.Embed(title=plr.name, url="https://web.roblox.com/users/{}/profile".format(plr.id), timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x086d1c)
                             embed.add_field(name="디스플레이 닉네임", value=plr.display_name or 'None', inline=False)
                             embed.add_field(name="계정 관련", value=" - - ", inline=False)
-                            embed.add_field(name="상태 메세지", value=await plr.get_status() or 'None', inline=True)
+                            #embed.add_field(name="상태 메세지", value=await plr.get_status() or 'None', inline=True)
                             embed.add_field(name="계정 생성일", value=plr.created.strftime("%m/%d/%Y, %H:%M:%S" or 'None'), inline=True)
                             embed.add_field(name="계정 설명", value=plr.description or 'None', inline=False)
                             embed.add_field(name="그룹 관련", value=" - - ", inline=False)
@@ -349,28 +350,28 @@ async def on_message(message):
                             rdr = csv.reader(f)
                             for line in rdr:
                                 if str(message.guild.id) in line:
-                                    try:
-                                        if i is True:
-                                            group_id_ = line[1]
-                                            SCP_Group = await Rclient.get_group(group_id_)
-                                            await SCP_Group.update_shout(amount)
-                                            """if "#" in shout:
-                                                await SCP_Group.update_shout(old_shout)
-                                                embed = discord.Embed(title="오류!", description="요청하신 메세지가 필터링됬습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
-                                                embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
-                                                await message.channel.send (embed=embed)
-                                            else:"""
-                                            embed = discord.Embed(title="요청하신 메세지가 성공적으로 입력됬습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x086d1c)
+                                    #try:
+                                    if i is True:
+                                        group_id_ = line[1]
+                                        SCP_Group = await Rclient.get_group(group_id_)
+                                        await SCP_Group.update_shout(amount)
+                                        """if "#" in shout:
+                                            await SCP_Group.update_shout(old_shout)
+                                            embed = discord.Embed(title="오류!", description="요청하신 메세지가 필터링됬습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
                                             embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
                                             await message.channel.send (embed=embed)
-                                        if i is False:
-                                            embed = discord.Embed(title="오류!", description="요청자에게 권한이 없습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
-                                            embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
-                                            await message.channel.send (embed=embed)
-                                    except:
-                                        embed = discord.Embed(title="오류!", description="오류가 발생하였습니다. 다시 시도해 주세요.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
+                                        else:"""
+                                        embed = discord.Embed(title="요청하신 메세지가 성공적으로 입력됬습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x086d1c)
                                         embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
                                         await message.channel.send (embed=embed)
+                                    if i is False:
+                                        embed = discord.Embed(title="오류!", description="요청자에게 권한이 없습니다.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
+                                        embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
+                                        await message.channel.send (embed=embed)
+                                    #except:
+                                    #    embed = discord.Embed(title="오류!", description="오류가 발생하였습니다. 다시 시도해 주세요.", timestamp=datetime.datetime.now(pytz.timezone('UTC')), color=0x992D22)
+                                    #    embed.set_footer(text="System By 김인간#1135 CC BY-SA", icon_url="https://cdn.discordapp.com/attachments/911794154147819570/926360317624217660/Core-TIer.png")
+                                    #    await message.channel.send (embed=embed)
                     if message.content.startswith(";업데이트"):
                         f = open('Data.csv', 'r', encoding='UTF8')
                         rdr = csv.reader(f)
